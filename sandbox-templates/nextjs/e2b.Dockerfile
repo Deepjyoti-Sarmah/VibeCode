@@ -1,3 +1,4 @@
+# You can use most Debian-based base images
 FROM node:21-slim
 
 # Install curl
@@ -15,4 +16,6 @@ RUN npx --yes shadcn@2.6.3 init --yes -b neutral --force
 RUN npx --yes shadcn@2.6.3 add --all --yes
 
 # Move the Nextjs app to the home directory and remove the nextjs-app directory
-RUN mv /home/user/nextjs-app/* /home/user/ && rm -rf /home/user/nextjs-app
+RUN mv /home/user/nextjs-app/* /home/user/
+RUN rm -rf /home/user/nextjs-app
+
