@@ -19,6 +19,15 @@ enum MessageRole {
   ASSISTANT
 }
 
+model Project {
+  id        String   @id @default(uuid())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  messages Message[]
+}
+
 enum MessageType {
   RESULT
   ERROR
@@ -32,7 +41,10 @@ model Message {
   createdAt DateTime    @default(now())
   updatedAt DateTime    @updatedAt
 
-  Fragment Fragment?
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  fragment Fragment?
 }
 
 model Fragment {
