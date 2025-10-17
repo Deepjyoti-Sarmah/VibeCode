@@ -10,7 +10,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpIcon, Loader2 } from "lucide-react";
 import { useTRPC } from "@/trpc/client";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { create } from "node:domain";
 import { toast } from "sonner";
 
 interface Props {
