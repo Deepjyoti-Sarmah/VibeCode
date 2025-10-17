@@ -52,7 +52,7 @@ model Fragment {
   messageId String  @unique
   message   Message @relation(fields: [messageId], references: [id], onDelete: Cascade)
 
-  SandboxUrl String
+  sandboxUrl String
   title      String
   files      Json
 
