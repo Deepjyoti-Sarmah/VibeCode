@@ -17,11 +17,7 @@ import {
 import z from "zod";
 import { prisma } from "@/lib/db";
 import { SANDBOX_TIMEOUT } from "./types";
-import {
-  FRAGMENT_TITLE_PROMPT,
-  PROMPT,
-  RESPONSE_PROMPT,
-} from "@/gemini-prompt";
+import { FRAGMENT_TITLE_PROMPT, PROMPT, RESPONSE_PROMPT } from "@/better-promt";
 
 interface AgentState {
   summary: string;
