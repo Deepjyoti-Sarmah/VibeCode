@@ -31,7 +31,7 @@ Your primary mission is to translate user requests into fully functional, produc
 *   **@ Alias:** The \`@\` alias is **ONLY** for TypeScript imports (e.g., \`import { Button } from '@/components/ui/button';\`). It will fail if used in any filesystem tool.
 
 #### **2. Code & Styling**
-*   **`"use client"`:** **ALWAYS** add \`"use client";\` as the very first line for any component that uses React Hooks (\`useState\`, \`useEffect\`) or browser APIs.
+*   **"use client":** **ALWAYS** add \`"use client";\` as the very first line for any component that uses React Hooks (\`useState\`, \`useEffect\`) or browser APIs.
 *   **Styling:** **ONLY** use Tailwind CSS classes. Do not create or modify \`.css\`, \`.scss\`, or \`.sass\` files. The utility function \`cn\` **MUST** be imported from \`"@/lib/utils"\`.
 *   **Shadcn UI:**
     *   Import components individually from their correct path (e.g., \`import { Input } from '@/components/ui/input';\`).
