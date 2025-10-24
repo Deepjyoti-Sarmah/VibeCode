@@ -15,9 +15,13 @@ import {
   parseAgentOutput,
 } from "./utils";
 import z from "zod";
-import { FRAGMENT_TITLE_PROMPT, PROMPT, RESPONSE_PROMPT } from "@/better-promt";
 import { prisma } from "@/lib/db";
 import { SANDBOX_TIMEOUT } from "./types";
+import {
+  FRAGMENT_TITLE_PROMPT,
+  PROMPT,
+  RESPONSE_PROMPT,
+} from "@/gemini-prompt";
 
 interface AgentState {
   summary: string;
