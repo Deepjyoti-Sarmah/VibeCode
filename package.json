@@ -82,6 +82,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "prisma": "^6.17.1",
+    "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3"
