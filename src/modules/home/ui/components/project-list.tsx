@@ -20,7 +20,7 @@ export const ProjectList = () => {
       <h2 className="text-2xl font-semibold">
         {user?.firstName}&apos;s Vibe-Codes
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <div className="grid gap-6 grid-cols-[repeat(auto-fit,minmax(240px,1fr))]">
         {projects?.length === 0 && (
           <div className="col-span-full text-center">
             <p className="text-sm  text-muted-foreground"> No projects found</p>
@@ -42,9 +42,9 @@ export const ProjectList = () => {
                   height={32}
                   className="object-contain"
                 />
-                <div className="flex flex-col">
+                <div className="flex flex-col min-w-0">
                   <h3 className="truncate font-medium">{project.name}</h3>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="truncate text-sm text-muted-foreground">
                     {formatDistanceToNow(project.updatedAt, {
                       addSuffix: true,
                     })}
