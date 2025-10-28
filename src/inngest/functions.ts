@@ -6,6 +6,7 @@ import {
   Tool,
   type Message,
   createState,
+  openai,
 } from "@inngest/agent-kit";
 import { inngest } from "./client";
 import { Sandbox } from "@e2b/code-interpreter";
@@ -18,6 +19,7 @@ import z from "zod";
 import { prisma } from "@/lib/db";
 import { SANDBOX_TIMEOUT } from "./types";
 import { FRAGMENT_TITLE_PROMPT, PROMPT, RESPONSE_PROMPT } from "@/better-promt";
+import { V0_PROMPT } from "@/v0-prompt";
 
 interface AgentState {
   summary: string;
@@ -74,9 +76,18 @@ export const codeAgentFunction = inngest.createFunction(
     const codeAgent = createAgent<AgentState>({
       name: "code-agent",
       description: "An expert coding agent",
-      system: PROMPT,
-      model: gemini({
-        model: "gemini-2.5-flash-lite-preview-06-17",
+      system: V0_PROMPT,
+
+      //gemini
+      // model: gemini({
+      //   model: "gemini-2.5-flash-lite-preview-06-17",
+      // }),
+
+      // openai
+      model: openai({
+        model: "gpt-4o",
+        apiKey: process.env.OPENROUTER_API_KEY,
+        baseUrl: "https://openrouter.ai/api/v1",
       }),
 
       tools: [
@@ -176,6 +187,7 @@ export const codeAgentFunction = inngest.createFunction(
           },
         }),
       ],
+
       lifecycle: {
         onResponse: async ({ result, network }) => {
           const lastAssistantMessageText =
