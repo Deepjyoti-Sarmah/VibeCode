@@ -18,7 +18,7 @@ import {
 import z from "zod";
 import { prisma } from "@/lib/db";
 import { SANDBOX_TIMEOUT } from "./types";
-import { FRAGMENT_TITLE_PROMPT, PROMPT, RESPONSE_PROMPT } from "@/better-promt";
+import { FRAGMENT_TITLE_PROMPT, RESPONSE_PROMPT } from "@/better-promt";
 import { V0_PROMPT } from "@/v0-prompt";
 
 interface AgentState {
@@ -78,17 +78,17 @@ export const codeAgentFunction = inngest.createFunction(
       description: "An expert coding agent",
       system: V0_PROMPT,
 
-      //gemini
-      // model: gemini({
-      //   model: "gemini-2.5-flash-lite-preview-06-17",
-      // }),
+      // gemini
+      model: gemini({
+        model: "gemini-2.5-flash-lite-preview-06-17",
+      }),
 
       // openai
-      model: openai({
-        model: "gpt-4o",
-        apiKey: process.env.OPENROUTER_API_KEY,
-        baseUrl: "https://openrouter.ai/api/v1",
-      }),
+      // model: openai({
+      //   model: "gpt-4o",
+      //   apiKey: process.env.OPENROUTER_API_KEY,
+      //   baseUrl: "https://openrouter.ai/api/v1",
+      // }),
 
       tools: [
         createTool({
