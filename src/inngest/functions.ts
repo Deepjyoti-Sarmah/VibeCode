@@ -1,25 +1,24 @@
-import {
-  gemini,
-  createAgent,
-  createTool,
-  createNetwork,
-  Tool,
-  type Message,
-  createState,
-  openai,
-} from "@inngest/agent-kit";
-import { inngest } from "./client";
 import { Sandbox } from "@e2b/code-interpreter";
+import {
+  createAgent,
+  createNetwork,
+  createState,
+  createTool,
+  gemini,
+  type Message,
+  type Tool,
+} from "@inngest/agent-kit";
+import z from "zod";
+import { FRAGMENT_TITLE_PROMPT, RESPONSE_PROMPT } from "@/better-promt";
+import { prisma } from "@/lib/db";
+import { V0_PROMPT } from "@/v0-prompt";
+import { inngest } from "./client";
+import { SANDBOX_TIMEOUT } from "./types";
 import {
   getSandbox,
   lastAssistantTextMessageContent,
   parseAgentOutput,
 } from "./utils";
-import z from "zod";
-import { prisma } from "@/lib/db";
-import { SANDBOX_TIMEOUT } from "./types";
-import { FRAGMENT_TITLE_PROMPT, RESPONSE_PROMPT } from "@/better-promt";
-import { V0_PROMPT } from "@/v0-prompt";
 
 interface AgentState {
   summary: string;
