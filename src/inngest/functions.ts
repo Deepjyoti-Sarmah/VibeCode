@@ -79,7 +79,7 @@ export const codeAgentFunction = inngest.createFunction(
 
       // gemini
       model: gemini({
-        model: "gemini-2.5-flash-lite-preview-06-17",
+        model: "gemini-3.1-flash-lite-preview",
       }),
 
       // openai
